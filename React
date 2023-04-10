@@ -1,0 +1,57 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    // Lógica para realizar login
+    console.log(`Login com email: ${email} e senha: ${password}`);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Faça login para continuar</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="E-mail"
+        onChangeText={setEmail}
+        value={email}
+        keyboardType="email-address"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Senha"
+        onChangeText={setPassword}
+        value={password}
+        secureTextEntry={true}
+      />
+      <Button title="Login" onPress={handleLogin} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  input: {
+    height: 40,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    paddingHorizontal: 10,
+    marginBottom: 10,
+  },
+});
+
+export default Login;
